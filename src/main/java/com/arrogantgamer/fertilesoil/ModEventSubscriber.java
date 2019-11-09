@@ -27,7 +27,6 @@ public class ModEventSubscriber {
   public static void onRegisterItems(RegistryEvent.Register<Item> event) {
     System.out.println("=========> onRegisterBlocks");
     event.getRegistry().registerAll(
-      setup(new Item(new Item.Properties()), "example_item"),
       setup(new BlockItem(ModBlocks.FERTILE_DIRT_BLOCK, new Item.Properties()), ModBlocks.FERTILE_DIRT_BLOCK.getRegistryName()),
       setup(new BlockItem(ModBlocks.FERTILE_GRASS_BLOCK, new Item.Properties()), ModBlocks.FERTILE_GRASS_BLOCK.getRegistryName())
     );

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " b ",
+    " d ",
+    " c "
+  ],
+  "key": {
+    "b": {
+      "item": "minecraft:bone_meal"
+    },
+    "d": {
+      "item": "minecraft:dirt"
+    },
+    "c": {
+      "item": "minecraft:clay"
+    }
+  },
+  "result": {
+    "item": "fertilesoil:fertile_dirt_block"
+  }
+}
