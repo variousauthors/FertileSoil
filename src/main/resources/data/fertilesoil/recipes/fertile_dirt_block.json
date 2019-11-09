@@ -10,10 +10,10 @@
       "item": "minecraft:bone_meal"
     },
     "d": {
-      "item": "minecraft:dirt"
+      "tag": "fertilesoil:dirt"
     },
     "c": {
-      "item": "minecraft:clay"
+      "item": "minecraft:clay_ball"
     }
   },
   "result": {
