@@ -36,10 +36,11 @@ import net.minecraftforge.common.PlantType;
  * 
  * [x] sheep should be able to eat the grass (and it gives them a buff! <3)
  *    - this seems to be not possible at the moment
- * [] hoe and shovel interaction -> both destroy the fertile dirt
+ * [] hoe and shovel interaction
  *    - need to make FertileFarmlandBlock and FertilePathBlock
- *    - fertile Farmland should not have a bonus though I think... or maybe it
- *      should just have a little bonus?
+ *    - make an event handler to do the switch
+ * 
+ * []- give fertile farmland a bonus, or don't
  * 
  */
 public class FertileGrassBlock extends GrassBlock {
