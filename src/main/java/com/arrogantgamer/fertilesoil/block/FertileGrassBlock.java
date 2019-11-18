@@ -2,18 +2,20 @@ package com.arrogantgamer.fertilesoil.block;
 
 import java.util.Random;
 
+import com.arrogantgamer.fertilesoil.FertileSoil;
 import com.arrogantgamer.fertilesoil.ModBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.BushBlock;
 import net.minecraft.block.GrassBlock;
 import net.minecraft.block.SnowBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.Direction;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
@@ -22,15 +24,22 @@ import net.minecraft.world.lighting.LightEngine;
 import net.minecraftforge.common.PlantType;
 
 /**
- * [x] hydration (growth speed should be not as good as farmland)
- * [x] trampling (no trampling)
- * [] tag for grass bushlikes
- * [x] can we have it spread grass to nearby dirt?
+ * [o] hydration (growth speed should be not as good as farmland)
+ * [o] trampling (no trampling)
+ * [o] tag for grass bushlikes
+ *    - for mushrooms, try planting on lower light block
+ *    - for the rest, gradually add the tags back in and test
+ * [o] can we have it spread grass to nearby dirt?
  * 
  * [] the grass color should match biomes // handle in code
  * [] the dirt color should be richer // custom texture?
- * [] sheep should be able to eat the grass (and it gives them a buff! <3)
+ * 
+ * [x] sheep should be able to eat the grass (and it gives them a buff! <3)
+ *    - this seems to be not possible at the moment
  * [] hoe and shovel interaction -> both destroy the fertile dirt
+ *    - need to make FertileFarmlandBlock and FertilePathBlock
+ *    - fertile Farmland should not have a bonus though I think... or maybe it
+ *      should just have a little bonus?
  * 
  */
 public class FertileGrassBlock extends GrassBlock {
@@ -47,21 +56,19 @@ public class FertileGrassBlock extends GrassBlock {
   @Override
   public boolean canSustainPlant(BlockState state, IBlockReader world, BlockPos pos, Direction facing, net.minecraftforge.common.IPlantable plantable) {
       PlantType type = plantable.getPlantType(world, pos.offset(facing));
+      ResourceLocation myTagId = new ResourceLocation(FertileSoil.MODID, "fertile_grass_plants");
 
-      // the bush blocks, like Crop, hard code values in isValidGround
-      if (plantable instanceof BushBlock) {
-    	  // check if this bushblock can normally grow on grass (maybe use tags?)
-          return true;
-      }
+      boolean isPlantableOnGrass = BlockTags.getCollection().getOrCreate(myTagId).contains((Block)plantable);
 
-      return type == PlantType.Crop || super.canSustainPlant(state, world, pos, facing, plantable);
+      return isPlantableOnGrass || type == PlantType.Crop || super.canSustainPlant(state, world, pos, facing, plantable);
   }
   
   /* Overrides of the grass spreading logic 
    * modified so that this spreads normal grass
    * but degenerates into fertile dirt 
    * TODO once my PR is in we can do this with an event handler since it is basically the 
-   * same as making mycelium spread wool */
+   * same as making mycelium spread wool 
+   * =================================== */
   
   private static boolean func_220257_b(BlockState p_220257_0_, IWorldReader p_220257_1_, BlockPos p_220257_2_) {
       BlockPos blockpos = p_220257_2_.up();
