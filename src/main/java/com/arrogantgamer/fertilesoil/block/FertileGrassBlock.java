@@ -2,8 +2,11 @@ package com.arrogantgamer.fertilesoil.block;
 
 import java.util.Random;
 
+import javax.annotation.Nullable;
+
 import com.arrogantgamer.fertilesoil.FertileSoil;
 import com.arrogantgamer.fertilesoil.ModBlocks;
+import com.arrogantgamer.fertilesoil.vanilla.behaviours.ShovelItemBehaviours;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -12,38 +15,30 @@ import net.minecraft.block.GrassBlock;
 import net.minecraft.block.SnowBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.color.IBlockColor;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemUseContext;
+import net.minecraft.item.Items;
+import net.minecraft.item.ShovelItem;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.FluidTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.util.Direction;
+import net.minecraft.util.Hand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.world.GrassColors;
 import net.minecraft.world.IBlockReader;
+import net.minecraft.world.IEnviromentBlockReader;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraft.world.lighting.LightEngine;
 import net.minecraftforge.common.PlantType;
+import net.minecraftforge.common.ToolType;
 
-/**
- * [o] hydration (growth speed should be not as good as farmland)
- * [o] trampling (no trampling)
- * [o] tag for grass bushlikes
- *    - for mushrooms, try planting on lower light block
- *    - for the rest, gradually add the tags back in and test
- * [o] can we have it spread grass to nearby dirt?
- * 
- * [] the grass color should match biomes // handle in code
- * [] the dirt color should be richer // custom texture?
- * 
- * [x] sheep should be able to eat the grass (and it gives them a buff! <3)
- *    - this seems to be not possible at the moment
- * [] hoe and shovel interaction
- *    - need to make FertileFarmlandBlock and FertilePathBlock
- *    - make an event handler to do the switch
- * 
- * []- give fertile farmland a bonus, or don't
- * 
- */
-public class FertileGrassBlock extends GrassBlock {
+public class FertileGrassBlock extends GrassBlock implements IBlockColor {
   public static Block.Properties properties = Block.Properties
     .create(Material.ORGANIC)
     .tickRandomly()
@@ -62,6 +57,20 @@ public class FertileGrassBlock extends GrassBlock {
       boolean isPlantableOnGrass = BlockTags.getCollection().getOrCreate(myTagId).contains((Block)plantable);
 
       return isPlantableOnGrass || type == PlantType.Crop || super.canSustainPlant(state, world, pos, facing, plantable);
+  }
+  
+  public int getColor(BlockState state, @Nullable IEnviromentBlockReader blockReader, @Nullable BlockPos pos, int tintIndex) {
+	  if (blockReader != null && pos != null) {
+		  return blockReader.getBiome(pos).getGrassColor(pos);		  
+	  }
+
+	  return GrassColors.get(0.5D, 1.0D);
+  }
+  
+  @Override
+  public boolean onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+	return super.onBlockActivated(state, worldIn, pos, player, handIn, hit)
+		|| ShovelItemBehaviours.behaveLikeGrassBlock(state, worldIn, pos, player, handIn, hit);
   }
   
   /* Overrides of the grass spreading logic 
