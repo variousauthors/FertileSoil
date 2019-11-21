@@ -27,11 +27,12 @@ import org.apache.logging.log4j.Logger;
  * [x] sheep should be able to eat the grass (and it gives them a buff! <3)
  *    - this seems to be not possible at the moment
  * [] hoe and shovel interaction
- *    [] implement the same for hoe on Dirt/Grass
+ *    [o] implement the same for hoe on Dirt/Grass
  *    [] add models for farmland/path
  *    [o] need to make FertileFarmlandBlock and FertilePathBlock
  *    [o] make an event handler to do the switch
  *    [o] should affect fertile dirt the same way
+ *    [] make sure crops can be planted on FertileFarmland
  * 
  * [o]- do not give fertile farmland a bonus
  * 
