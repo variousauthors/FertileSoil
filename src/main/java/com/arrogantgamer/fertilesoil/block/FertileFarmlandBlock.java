@@ -8,8 +8,11 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.FarmlandBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+import net.minecraftforge.common.PlantType;
 
 public class FertileFarmlandBlock extends FarmlandBlock {
     public static Properties properties = Block.Properties.create(Material.EARTH).tickRandomly().hardnessAndResistance(0.6F).sound(SoundType.GROUND);
@@ -19,6 +22,13 @@ public class FertileFarmlandBlock extends FarmlandBlock {
 	this.setDefaultState(this.stateContainer.getBaseState().with(MOISTURE, Integer.valueOf(0)));
     }
 
+    @Override
+    public boolean canSustainPlant(BlockState state, IBlockReader world, BlockPos pos, Direction facing, net.minecraftforge.common.IPlantable plantable) {
+	PlantType type = plantable.getPlantType(world, pos.offset(facing));
+
+	return type == PlantType.Crop || super.canSustainPlant(state, world, pos, facing, plantable);
+    }   
+    
     public static void turnToDirt(BlockState state, World worldIn, BlockPos pos) {
 	FarmlandBlockBehaviours.turnToDirt(state, worldIn, pos, ModBlocks.FERTILE_DIRT_BLOCK);
     }

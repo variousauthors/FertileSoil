@@ -26,19 +26,23 @@ import org.apache.logging.log4j.Logger;
  * 
  * [x] sheep should be able to eat the grass (and it gives them a buff! <3)
  *    - this seems to be not possible at the moment
- * [] hoe and shovel interaction
+ * [o] hoe and shovel interaction
  *    [o] implement the same for hoe on Dirt/Grass
- *    [] add models for farmland/path
  *    [o] need to make FertileFarmlandBlock and FertilePathBlock
  *    [o] make an event handler to do the switch
  *    [o] should affect fertile dirt the same way
- *    [] make sure crops can be planted on FertileFarmland
+ *    [o] make sure crops can be planted on FertileFarmland
+ * 
  * 
  * [o]- do not give fertile farmland a bonus
  * 
  * [] add recipe GRASS_BLOCK -> FERTILE_GRASS_BLOCK
  * [] make shovel the effective tool
- * 
+ * [] create an annotation for vanilla copy/paste methods
+ * [] Farmland's turnToDirt method is static, so I can't override it
+ *    so right now, FertileFarmland degenerates into dirt
+ *    I need to copy/paste tick/onEntityFallenOn/etc... anything that uses Farmland.turnToDirt
+ * [] add models for farmland/path
  */
 @Mod(FertileSoil.MODID)
 public final class FertileSoil {
