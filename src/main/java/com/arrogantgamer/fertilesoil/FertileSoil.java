@@ -22,7 +22,6 @@ import org.apache.logging.log4j.Logger;
  * [o] can we have it spread grass to nearby dirt?
  * 
  * [o] the grass color should match biomes // handle in code
- * [] the dirt color should be richer // custom texture?
  * 
  * [x] sheep should be able to eat the grass (and it gives them a buff! <3)
  *    - this seems to be not possible at the moment
@@ -36,13 +35,15 @@ import org.apache.logging.log4j.Logger;
  * 
  * [o]- do not give fertile farmland a bonus
  * 
- * [] add recipe GRASS_BLOCK -> FERTILE_GRASS_BLOCK
+ * [o] add recipe GRASS_BLOCK -> FERTILE_GRASS_BLOCK
+ * [] add models for farmland/path
+ * [] the dirt color should be richer // custom texture?
+ * 
  * [] make shovel the effective tool
- * [] create an annotation for vanilla copy/paste methods
  * [] Farmland's turnToDirt method is static, so I can't override it
  *    so right now, FertileFarmland degenerates into dirt
  *    I need to copy/paste tick/onEntityFallenOn/etc... anything that uses Farmland.turnToDirt
- * [] add models for farmland/path
+
  */
 @Mod(FertileSoil.MODID)
 public final class FertileSoil {

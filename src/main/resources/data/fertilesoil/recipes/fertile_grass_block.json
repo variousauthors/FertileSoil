@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " b ",
+    " g ",
+    " c "
+  ],
+  "key": {
+    "b": {
+      "item": "minecraft:bone_meal"
+    },
+    "g": {
+      "item": "minecraft:grass_block"
+    },
+    "c": {
+      "item": "minecraft:clay_ball"
+    }
+  },
+  "result": {
+    "item": "fertilesoil:fertile_grass_block"
+  }
+}
