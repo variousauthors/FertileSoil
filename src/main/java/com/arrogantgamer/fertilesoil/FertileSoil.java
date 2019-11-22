@@ -12,7 +12,6 @@ import org.apache.logging.log4j.Logger;
  * 
  * v0.2.0
  * [] integrate with all the things (JEI, WAILA, The One Probe, etc...)
- * [?] the dirt color should be richer?
  * [?] the farmland should give a bonus?
  * [] can enderman pick it up?
  *  
@@ -42,10 +41,14 @@ import org.apache.logging.log4j.Logger;
  * [o] add models for farmland/path
  * 
  * [o] make shovel the effective tool
- * [] path/farmland need to drop dirt (they currently drop nothing, which is weird)
+ * [o] path/farmland need to drop dirt (they currently drop nothing, which is weird)
  * [] Farmland's turnToDirt method is static, so I can't override it
  *    so right now, FertileFarmland degenerates into dirt
  *    I need to copy/paste tick/onEntityFallenOn/etc... anything that uses Farmland.turnToDirt
+ * [] the dirt color should be richer, because otherwise the blocks 
+ *    look identical to dirt in the inventory and that is terrible UX
+ * [] let dirt pull grass onto it while we wait for forge
+ * 
  */
 @Mod(FertileSoil.MODID)
 public final class FertileSoil {
