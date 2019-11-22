@@ -12,7 +12,10 @@ import org.apache.logging.log4j.Logger;
  * 
  * v0.2.0
  * [] integrate with all the things (JEI, WAILA, The One Probe, etc...)
- * 
+ * [?] the dirt color should be richer?
+ * [?] the farmland should give a bonus?
+ * [] can enderman pick it up?
+ *  
  * v0.1.0
  * [o] hydration (growth speed should be not as good as farmland)
  * [o] trampling (no trampling)
@@ -36,14 +39,13 @@ import org.apache.logging.log4j.Logger;
  * [o]- do not give fertile farmland a bonus
  * 
  * [o] add recipe GRASS_BLOCK -> FERTILE_GRASS_BLOCK
- * [] add models for farmland/path
- * [] the dirt color should be richer // custom texture?
+ * [o] add models for farmland/path
  * 
- * [] make shovel the effective tool
+ * [o] make shovel the effective tool
+ * [] path/farmland need to drop dirt (they currently drop nothing, which is weird)
  * [] Farmland's turnToDirt method is static, so I can't override it
  *    so right now, FertileFarmland degenerates into dirt
  *    I need to copy/paste tick/onEntityFallenOn/etc... anything that uses Farmland.turnToDirt
-
  */
 @Mod(FertileSoil.MODID)
 public final class FertileSoil {

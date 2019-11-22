@@ -7,26 +7,16 @@ import javax.annotation.Nullable;
 import com.arrogantgamer.fertilesoil.FertileSoil;
 import com.arrogantgamer.fertilesoil.ModBlocks;
 import com.arrogantgamer.fertilesoil.vanilla.behaviours.GrassBlockBehaviours;
-import com.arrogantgamer.fertilesoil.vanilla.behaviours.HoeItemBehaviours;
-import com.arrogantgamer.fertilesoil.vanilla.behaviours.ShovelItemBehaviours;
 import com.arrogantgamer.fertilesoil.vanilla.behaviours.SpreadableSnowyDirtBlockBehaviours;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.GrassBlock;
-import net.minecraft.block.SnowBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemUseContext;
-import net.minecraft.item.Items;
-import net.minecraft.item.ShovelItem;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.FluidTags;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ResourceLocation;
@@ -35,9 +25,7 @@ import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.GrassColors;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IEnviromentBlockReader;
-import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
-import net.minecraft.world.lighting.LightEngine;
 import net.minecraftforge.common.PlantType;
 import net.minecraftforge.common.ToolType;
 
@@ -67,6 +55,7 @@ public class FertileGrassBlock extends GrassBlock implements IBlockColor {
 	return GrassColors.get(0.5D, 1.0D);
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     public boolean onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
 	return super.onBlockActivated(state, worldIn, pos, player, handIn, hit) || GrassBlockBehaviours.onItemUseShovel(state, worldIn, pos, player, handIn, hit)
@@ -77,4 +66,9 @@ public class FertileGrassBlock extends GrassBlock implements IBlockColor {
     public void tick(BlockState state, World worldIn, BlockPos pos, Random random) {
 	SpreadableSnowyDirtBlockBehaviours.tick(state, worldIn, pos, random, ModBlocks.FERTILE_DIRT_BLOCK, ModBlocks.FERTILE_GRASS_BLOCK);
     }
+    
+    @Override
+    public boolean isToolEffective(BlockState state, ToolType tool) {
+	return tool == ToolType.SHOVEL;
+    }    
 }

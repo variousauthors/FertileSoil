@@ -13,6 +13,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.common.PlantType;
+import net.minecraftforge.common.ToolType;
 
 public class FertileFarmlandBlock extends FarmlandBlock {
     public static Properties properties = Block.Properties.create(Material.EARTH).tickRandomly().hardnessAndResistance(0.6F).sound(SoundType.GROUND);
@@ -32,4 +33,9 @@ public class FertileFarmlandBlock extends FarmlandBlock {
     public static void turnToDirt(BlockState state, World worldIn, BlockPos pos) {
 	FarmlandBlockBehaviours.turnToDirt(state, worldIn, pos, ModBlocks.FERTILE_DIRT_BLOCK);
     }
+    
+    @Override
+    public boolean isToolEffective(BlockState state, ToolType tool) {
+	return tool == ToolType.SHOVEL;
+    }    
 }

@@ -13,6 +13,7 @@ import net.minecraft.world.World;
 public class HoeItemBehaviours {
 
     /* grabbed from HoeItem 1.14.4-28.1.0 (2019-11-19 ) */
+    @SuppressWarnings("deprecation")
     public static void turnBlockToFarmland(ItemUseContext context, FarmlandBlock path) {
 	World world = context.getWorld();
 	BlockPos blockpos = context.getPos();
