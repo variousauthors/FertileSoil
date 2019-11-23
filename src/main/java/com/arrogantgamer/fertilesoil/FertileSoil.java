@@ -14,6 +14,7 @@ import org.apache.logging.log4j.Logger;
  * [] integrate with all the things (JEI, WAILA, The One Probe, etc...)
  * [?] the farmland should give a bonus?
  * [] can enderman pick it up?
+ * [] think about the contrast between the dirt color and the farmland_top color :/
  *  
  * v0.1.0
  * [o] hydration (growth speed should be not as good as farmland)
@@ -42,7 +43,9 @@ import org.apache.logging.log4j.Logger;
  * 
  * [o] make shovel the effective tool
  * [o] path/farmland need to drop dirt (they currently drop nothing, which is weird)
- * [] Farmland's turnToDirt method is static, so I can't override it
+ * [o] does snow gather on it correctly
+
+ * [o] Farmland's turnToDirt method is static, so I can't override it
  *    so right now, FertileFarmland degenerates into dirt
  *    I need to copy/paste tick/onEntityFallenOn/etc... anything that uses Farmland.turnToDirt
  * [] the dirt color should be richer, because otherwise the blocks 
