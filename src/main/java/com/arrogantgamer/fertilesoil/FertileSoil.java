@@ -13,8 +13,6 @@ import org.apache.logging.log4j.Logger;
  * v0.2.0
  * [] integrate with all the things (JEI, WAILA, The One Probe, etc...)
  * [?] the farmland should give a bonus?
- * [] can enderman pick it up?
- * [] think about the contrast between the dirt color and the farmland_top color :/
  *  
  * v0.1.0
  * [o] hydration (growth speed should be not as good as farmland)
@@ -48,9 +46,10 @@ import org.apache.logging.log4j.Logger;
  * [o] Farmland's turnToDirt method is static, so I can't override it
  *    so right now, FertileFarmland degenerates into dirt
  *    I need to copy/paste tick/onEntityFallenOn/etc... anything that uses Farmland.turnToDirt
- * [] the dirt color should be richer, because otherwise the blocks 
+ * [o] the dirt color should be richer, because otherwise the blocks 
  *    look identical to dirt in the inventory and that is terrible UX
- * [] let dirt pull grass onto it while we wait for forge
+ * [o] add blocks to enderman_holdable
+ * [o] let dirt pull grass onto it while we wait for forge
  * 
  */
 @Mod(FertileSoil.MODID)
@@ -60,7 +59,5 @@ public final class FertileSoil {
 
     public static final Logger LOGGER = LogManager.getLogger(MODID);
 
-    public FertileSoil() {
-        LOGGER.debug("HELLO HELLO");
-    }
+    public FertileSoil() {}
 }

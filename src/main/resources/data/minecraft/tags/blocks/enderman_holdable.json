@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "fertilesoil:fertile_grass_block",
+    "fertilesoil:fertile_dirt_block"
+  ]
+}
