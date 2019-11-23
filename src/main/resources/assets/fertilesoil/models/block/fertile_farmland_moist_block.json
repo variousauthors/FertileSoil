@@ -3,6 +3,6 @@
     "textures": {
         "particle": "fertilesoil:block/fertile_dirt_block",
         "dirt": "fertilesoil:block/fertile_dirt_block",
-        "top": "minecraft:block/farmland"
+        "top": "minecraft:block/farmland_moist"
     }
 }

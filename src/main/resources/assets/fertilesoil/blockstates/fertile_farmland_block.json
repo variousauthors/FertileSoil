@@ -1,12 +1,12 @@
 {
     "variants": {
-        "moisture=0": { "model": "minecraft:block/farmland" },
-        "moisture=1": { "model": "minecraft:block/farmland" },
-        "moisture=2": { "model": "minecraft:block/farmland" },
-        "moisture=3": { "model": "minecraft:block/farmland" },
-        "moisture=4": { "model": "minecraft:block/farmland" },
-        "moisture=5": { "model": "minecraft:block/farmland" },
-        "moisture=6": { "model": "minecraft:block/farmland" },
-        "moisture=7": { "model": "minecraft:block/farmland_moist" }
+        "moisture=0": { "model": "fertilesoil:block/fertile_farmland_block" },
+        "moisture=1": { "model": "fertilesoil:block/fertile_farmland_block" },
+        "moisture=2": { "model": "fertilesoil:block/fertile_farmland_block" },
+        "moisture=3": { "model": "fertilesoil:block/fertile_farmland_block" },
+        "moisture=4": { "model": "fertilesoil:block/fertile_farmland_block" },
+        "moisture=5": { "model": "fertilesoil:block/fertile_farmland_block" },
+        "moisture=6": { "model": "fertilesoil:block/fertile_farmland_block" },
+        "moisture=7": { "model": "fertilesoil:block/fertile_farmland_moist_block" }
     }
 }

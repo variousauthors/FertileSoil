@@ -1,9 +1,9 @@
 {   "parent": "minecraft:block/block",
     "textures": {
-        "particle": "minecraft:block/dirt",
+        "particle": "fertilesoil:block/fertile_dirt_block",
         "top": "minecraft:block/grass_path_top",
-        "side": "minecraft:block/grass_path_side",
-        "bottom": "minecraft:block/dirt"
+        "side": "fertilesoil:block/fertile_grass_path_side",
+        "bottom": "fertilesoil:block/fertile_dirt_block"
     },
     "elements": [
         {   "from": [ 0, 0, 0 ],

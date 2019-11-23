@@ -1,0 +1,9 @@
+{
+    "parent": "minecraft:block/cube_bottom_top",
+    "textures": {
+        "particle": "fertilesoil:block/fertile_dirt_block",
+        "bottom": "fertilesoil:block/fertile_dirt_block",
+        "top": "minecraft:block/grass_block_top",
+        "side": "fertilesoil:block/fertile_grass_block_snow"
+    }
+}

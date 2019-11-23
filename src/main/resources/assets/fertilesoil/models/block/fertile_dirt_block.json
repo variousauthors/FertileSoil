@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "minecraft:block/dirt"
+    "all": "fertilesoil:block/fertile_dirt_block"
   }
 }
