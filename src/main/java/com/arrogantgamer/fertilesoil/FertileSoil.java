@@ -15,6 +15,10 @@ import org.apache.logging.log4j.Logger;
  * [?] the farmland should give a bonus?
  *  
  * v0.1.0
+ * [o] test on the server
+ * [] test with a bunch of other mods in there
+ * [] all language stuff
+ * 
  * [o] hydration (growth speed should be not as good as farmland)
  * [o] trampling (no trampling)
  * [o] tag for grass bushlikes

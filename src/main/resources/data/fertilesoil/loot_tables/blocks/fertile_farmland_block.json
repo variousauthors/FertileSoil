@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:dirt"
+          "name": "fertilesoil:fertile_dirt_block"
         }
       ],
       "conditions": [

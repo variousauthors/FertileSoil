@@ -29,7 +29,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.PlantType;
 import net.minecraftforge.common.ToolType;
 
-public class FertileGrassBlock extends GrassBlock implements IBlockColor {
+public class FertileGrassBlock extends GrassBlock {
     public static Block.Properties properties = Block.Properties.create(Material.ORGANIC).tickRandomly().hardnessAndResistance(0.6F).sound(SoundType.PLANT);
 
     public FertileGrassBlock(Properties properties) {
@@ -47,14 +47,6 @@ public class FertileGrassBlock extends GrassBlock implements IBlockColor {
 	return isPlantableOnGrass || type == PlantType.Crop || super.canSustainPlant(state, world, pos, facing, plantable);
     }
 
-    public int getColor(BlockState state, @Nullable IEnviromentBlockReader blockReader, @Nullable BlockPos pos, int tintIndex) {
-	if (blockReader != null && pos != null) {
-	    return blockReader.getBiome(pos).getGrassColor(pos);
-	}
-
-	return GrassColors.get(0.5D, 1.0D);
-    }
-
     @SuppressWarnings("deprecation")
     @Override
     public boolean onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
@@ -66,9 +58,19 @@ public class FertileGrassBlock extends GrassBlock implements IBlockColor {
     public void tick(BlockState state, World worldIn, BlockPos pos, Random random) {
 	SpreadableSnowyDirtBlockBehaviours.tick(state, worldIn, pos, random, ModBlocks.FERTILE_DIRT_BLOCK, ModBlocks.FERTILE_GRASS_BLOCK);
     }
-    
+
     @Override
     public boolean isToolEffective(BlockState state, ToolType tool) {
 	return tool == ToolType.SHOVEL;
-    }    
+    }
+
+    public static class ColorHandler implements IBlockColor {
+	public int getColor(BlockState state, @Nullable IEnviromentBlockReader blockReader, @Nullable BlockPos pos, int tintIndex) {
+	    if (blockReader != null && pos != null) {
+		return blockReader.getBiome(pos).getGrassColor(pos);
+	    }
+
+	    return GrassColors.get(0.5D, 1.0D);
+	}
+    }
 }
