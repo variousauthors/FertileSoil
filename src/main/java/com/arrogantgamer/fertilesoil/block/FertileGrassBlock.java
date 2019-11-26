@@ -39,7 +39,8 @@ public class FertileGrassBlock extends GrassBlock {
     @Override
     public boolean canSustainPlant(BlockState state, IBlockReader world, BlockPos pos, Direction facing, net.minecraftforge.common.IPlantable plantable) {
 	PlantType type = plantable.getPlantType(world, pos.offset(facing));
-	// TODO change this to test each tag (flowers, mushrooms, etc...) as they become available
+	// TODO change this to test each tag (flowers, mushrooms, etc...) as they become
+	// available
 	ResourceLocation tagId = new ResourceLocation(FertileSoil.MODID, "fertile_grass_plants");
 
 	boolean isPlantableOnGrass = BlockTags.getCollection().getOrCreate(tagId).contains((Block) plantable);

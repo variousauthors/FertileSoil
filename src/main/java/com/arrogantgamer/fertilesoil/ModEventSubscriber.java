@@ -7,6 +7,7 @@ import com.arrogantgamer.fertilesoil.block.FertileGrassPathBlock;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.item.BlockItem;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
@@ -29,8 +30,8 @@ public class ModEventSubscriber {
   @SubscribeEvent
   public static void onRegisterItems(RegistryEvent.Register<Item> event) {
     event.getRegistry().registerAll(
-      setup(new BlockItem(ModBlocks.FERTILE_DIRT_BLOCK, new Item.Properties()), ModBlocks.FERTILE_DIRT_BLOCK.getRegistryName()),
-      setup(new BlockItem(ModBlocks.FERTILE_GRASS_BLOCK, new Item.Properties()), ModBlocks.FERTILE_GRASS_BLOCK.getRegistryName()),
+      setup(new BlockItem(ModBlocks.FERTILE_DIRT_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)), ModBlocks.FERTILE_DIRT_BLOCK.getRegistryName()),
+      setup(new BlockItem(ModBlocks.FERTILE_GRASS_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)), ModBlocks.FERTILE_GRASS_BLOCK.getRegistryName()),
       setup(new BlockItem(ModBlocks.FERTILE_GRASS_PATH_BLOCK, new Item.Properties()), ModBlocks.FERTILE_GRASS_PATH_BLOCK.getRegistryName()),
       setup(new BlockItem(ModBlocks.FERTILE_FARMLAND_BLOCK, new Item.Properties()), ModBlocks.FERTILE_FARMLAND_BLOCK.getRegistryName())      
     );

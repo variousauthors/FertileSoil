@@ -12,15 +12,19 @@ import org.apache.logging.log4j.Logger;
  * 
  * v0.2.0
  * [] integrate with all the things (JEI, WAILA, The One Probe, etc...)
+ *    [o] integrate with JEI
  * [?] the farmland should give a bonus?
  * [] for some reason path and farmland show up in the /give command
  *    maybe because I have models.item entries for them? Not sure.
- * [] think about creative tabs
+ * [o] add to vanilla creative tabs
+ * [] add complete documentation of the mod directly to github and curseforge
+ *    - with a gif for the recipe :D
  * 
  * v0.1.0
+ * [o] set the version number to 1.14.4-0.1.0
  * [o] test on the server
- * [] test with a bunch of other mods in there
- * [] all language stuff: do I need to give names to path and farmland?
+ * [o] test with a bunch of other mods in there
+ * [o] all language stuff
  * 
  * [o] hydration (growth speed should be not as good as farmland)
  * [o] trampling (no trampling)
