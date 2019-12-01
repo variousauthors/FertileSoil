@@ -19,6 +19,11 @@ import org.apache.logging.log4j.Logger;
  * [o] add to vanilla creative tabs
  * [] add complete documentation of the mod directly to github and curseforge
  *    - with a gif for the recipe :D
+ * [] how do you do config???
+ *    [] add a config to control the richness of the grass color
+ *       - some folks are like "ah, I should be able to tell the rich grass apart by looking at it"
+ *    [] add a config for turning on/off a small fertility boost for rich farmland
+ *       - just on/off for the small boost, not a configurable boost!
  * 
  * v0.1.0
  * [o] set the version number to 1.14.4-0.1.0
